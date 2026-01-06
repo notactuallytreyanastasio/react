@@ -7,14 +7,14 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="React Codebase Decision Graph" />
-    <meta name="description" content="Explore the decision graph documenting work on React. Browse 218 nodes across 6 views: DAG, Chains, Timeline, Graph, Roadmap, and Story." />
+    <meta name="description" content="Explore the live decision graph that documented the creation of Deciduous. Browse 520+ nodes across 6 views: DAG, Chains, Timeline, Graph, Roadmap, and Story." />
     <title>React Codebase Decision Graph</title>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://notactuallytreyanastasio.github.io/react/" />
     <meta property="og:title" content="React Codebase Decision Graph" />
-    <meta property="og:description" content="Explore the decision graph documenting work on React. Browse 218 nodes across 6 views: DAG, Chains, Timeline, Graph, Roadmap, and Story." />
+    <meta property="og:description" content="Explore the live decision graph that documented the creation of Deciduous. Browse 520+ nodes across 6 views: DAG, Chains, Timeline, Graph, Roadmap, and Story." />
     <meta property="og:image" content="https://notactuallytreyanastasio.github.io/react/demo-og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -23,7 +23,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://notactuallytreyanastasio.github.io/react/" />
     <meta property="twitter:title" content="React Codebase Decision Graph" />
-    <meta property="twitter:description" content="Browse decisions documented while working on React. See goals, decisions, actions, and outcomes connected in an interactive graph." />
+    <meta property="twitter:description" content="Browse 520+ decisions that built Deciduous. See goals, decisions, actions, and outcomes connected in an interactive graph." />
     <meta property="twitter:image" content="https://notactuallytreyanastasio.github.io/react/demo-og.png" />
     <script type="module" crossorigin>function JI(e,t){for(var n=0;n<t.length;n++){const r=t[n];if(typeof r!="string"&&!Array.isArray(r)){for(const i in r)if(i!=="default"&&!(i in e)){const o=Object.getOwnPropertyDescriptor(r,i);o&&Object.defineProperty(e,i,o.get?o:{enumerable:!0,get:()=>r[i]})}}}return Object.freeze(Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}))}(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const o of i)if(o.type==="childList")for(const a of o.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&r(a)}).observe(document,{childList:!0,subtree:!0});function n(i){const o={};return i.integrity&&(o.integrity=i.integrity),i.referrerPolicy&&(o.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?o.credentials="include":i.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(i){if(i.ep)return;i.ep=!0;const o=n(i);fetch(i.href,o)}})();var Er=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Gl(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var vC={exports:{}},Yl={},wC={exports:{}},fe={};/**
  * @license React
@@ -215,47 +215,35 @@ pub struct DecisionNode {
   
 
 <style>
-  /* Disable the Ask Claude button on static site */
-  .ask-disabled {
-    opacity: 0.5 !important;
-    pointer-events: none !important;
-    cursor: not-allowed !important;
-  }
+  .ask-disabled { opacity: 0.5 !important; pointer-events: none !important; cursor: not-allowed !important; }
 </style>
 <script>
-  // Disable the Ask Claude functionality on static GitHub Pages deployment
   document.addEventListener('DOMContentLoaded', function() {
     function disableAskButtons() {
-      const buttons = document.querySelectorAll('button');
-      buttons.forEach(function(btn) {
-        const text = btn.textContent || btn.innerText || '';
+      document.querySelectorAll('button').forEach(function(btn) {
+        const text = btn.textContent || '';
         const title = btn.getAttribute('title') || '';
         if (text.includes('Ask') || title.includes('Ask') || title.includes('Claude')) {
           btn.style.opacity = '0.5';
           btn.style.pointerEvents = 'none';
           btn.style.cursor = 'not-allowed';
-          btn.setAttribute('disabled', 'true');
-          btn.setAttribute('title', 'Claude AI not available on static site');
+          btn.disabled = true;
+          btn.title = 'Claude AI not available on static site';
         }
       });
-      
-      const inputs = document.querySelectorAll('input');
-      inputs.forEach(function(input) {
-        const placeholder = input.getAttribute('placeholder') || '';
-        if (placeholder.includes('Ask') || placeholder.includes('question')) {
+      document.querySelectorAll('input').forEach(function(input) {
+        const ph = input.placeholder || '';
+        if (ph.includes('Ask') || ph.includes('question')) {
           input.style.opacity = '0.5';
-          input.style.pointerEvents = 'none';
-          input.setAttribute('disabled', 'true');
-          input.setAttribute('placeholder', 'Claude AI not available on static site');
+          input.disabled = true;
+          input.placeholder = 'Claude AI not available on static site';
         }
       });
     }
-    
     disableAskButtons();
     setInterval(disableAskButtons, 1000);
-    const observer = new MutationObserver(disableAskButtons);
-    observer.observe(document.body, { childList: true, subtree: true });
+    new MutationObserver(disableAskButtons).observe(document.body, { childList: true, subtree: true });
   });
 </script>
-  </body>
+</body>
 </html>
