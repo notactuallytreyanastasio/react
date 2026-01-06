@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+  <!-- Tree trunk -->
+  <rect x="45" y="60" width="10" height="30" fill="#8B4513" rx="2"/>
+  <!-- Tree crown (simplified deciduous tree) -->
+  <circle cx="50" cy="40" r="30" fill="url(#leafGradient)"/>
+  <circle cx="30" cy="45" r="20" fill="url(#leafGradient)"/>
+  <circle cx="70" cy="45" r="20" fill="url(#leafGradient)"/>
+  <circle cx="50" cy="25" r="18" fill="url(#leafGradient)"/>
+</svg>
